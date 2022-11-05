@@ -1,0 +1,23 @@
+
+
+
+d1
+  $ every 8 (|* speed "-1")
+  $ degradeBy 0.25
+  $ often (off 0.125 (|* speed 4))
+  $ sometimes (hurry 0.5)
+  $ stripe 2
+  $ palindrome
+  $ s "sinex*8"
+  # up "0 2 3 7 12 14 15 22"
+  # room 0.5 # sz 0.9 # gain 0.8
+
+d2
+  $ every 8 (# hpf 1000)
+  $ off 0.125 (# s "arhh")
+  $ s "arkick*4"
+
+d3
+  $ rarely (ply 4)
+  $ chunk 4 (hurry 2)
+  $ s "peri*8" # gain 0.7 # n (run 8)

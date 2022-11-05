@@ -1,0 +1,14 @@
+
+
+let freq = [261.6,
+            293.6, 311.1,
+            349.2, 391.9,
+            466.1]
+
+d1
+  $ s "lfnoise*19" # n 3 # room 0.5 # sz 0.9
+  # legato 3 # begin (rand * 0.7)
+  # cutoff (randcat freq)
+  # resonance (range 0.4 0.88 (slow 5 tri))
+
+

@@ -1,0 +1,24 @@
+
+
+
+hush
+
+d1
+  $ chunk 4 (hurry 2)
+  $ juxBy perlin (|* speed 1.02)
+  $ s "sine*16" # crush 2
+  #up ("{0 1 2}%16" + "{0 0 3 0 5 2 1}%2")
+  # legato 1 # gain 0.85
+  |* speed "{1 2 0.5 1 0.25 4}%8"
+
+d2 $ rarely (fast 4) $ s "arkick*4" # n "[2,4]"
+
+d3
+  $ every 8 (|* speed "-1")
+  $ rarely (ply 4)
+  $ someCyclesBy 0.8 (fast 2)
+  $ every 2 rev $ s "arcp arcp*2" # shape 0.98
+  # gain 0.8
+
+d4 $ s "glvox" # legato 1 # n (irand 44)
+  # room 0.5 # sz 0.8 # gain 0.8
