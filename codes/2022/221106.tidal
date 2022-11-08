@@ -1,0 +1,31 @@
+
+
+
+
+
+
+
+d1
+  $ every 4 (jux rev)
+  $ almostNever (fast 2)
+  $ rarely (|* speed "-0.5")
+  $ superimpose (hurry 0.5)
+  $ stripe 2
+  $ palindrome
+  $ s "sinex*4"
+  # up ("{0 2 3 10 7 14 15 22}%4" - 1)
+  # room 0.5 # sz 0.8 # begin (rand * 0.1) # end 0.98
+
+
+
+d2
+  $ jux (|* speed 1.03)
+  $ bite 4 "0 <<1 1*2> 1 <1*4 1>> <2 <2 2*3>> [3 <3 0?>]"
+  $ s "amenall2*8" # n (run "<7 <7 24>>")
+  # legato 1 # speed 0.9 # room 0.3 # sz 0.7
+  # gain 0.9
+
+d3
+  $ iter 4 $ sometimes (fast 2) $ s "peri*8"
+  # n (irand 44) # legato 1 # speed 1.2
+  

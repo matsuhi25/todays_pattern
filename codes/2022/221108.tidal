@@ -1,0 +1,16 @@
+
+
+
+do
+  d1
+    $ almostNever (ply 4)
+    $ off (1/3) (|* gain 0.75)
+    $ s "amencutup*8" # room 0.2
+    # n (irand 44)
+    # speed 1.5
+  d2
+    $ while "t(3,8)" (off 0 (hurry 0.5))
+    $ chop 16 $ loopAt "<4 8>" $ s "lfep:20"
+    # room 0.5 # sz 0.85 # gain 0.8 # lpf 5000
+    # legato (choose[1,0.75])
+
