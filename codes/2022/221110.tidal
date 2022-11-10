@@ -1,0 +1,17 @@
+
+
+
+d1
+  $ superimpose (slow 2 . (# n 3))
+  $ rarely (off 0.125 ((|+ n "<1 2>") . (|+ up 7)))
+  $ s "darkworld*8"
+  # up "0 2 3 10 3 10 3 2"
+  |+ n "0 1" # room 0.2 # sz 0.8
+
+
+d2 $ s "[arbt(3,8), ~ subx]"
+
+d3
+  $ rarely (ply 4)
+  $ s "arhh*8 [[arcp arcp?] arhh*4]"
+  # room 0.15 # gain 0.9
