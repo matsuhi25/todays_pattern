@@ -1,0 +1,22 @@
+
+do
+  d1
+    $ whenmod 16 14 (# s "808:4")
+    $ off 0.33 (|* gain 0.6)
+    $ s "808:1*8" # gain "{0.85 1.0}%8"
+  d2
+    $ whenmod 16 14 (|* gain 0)
+    $ s "mdkick ~ [~ mdkick] ~" # lpf 1200 # shape 0.2
+  d3
+    $ rarely (stutWith 4 (1/16) (|* gain 0.8))
+    $ sometimes (off 0 (ghost . (|* gain 0.7)))
+    $ s "mdsd*4" # shape 0.7 # gain ("0.4 0.3 1 0.3" * 0.9)
+  d4
+    $ rarely (|* speed "-1")
+    $ superimpose (hurry 0.5)
+    $ juxBy perlin (|* speed 1.01)
+    $ s "darkworld*8" # gain 0.8
+    # up "{10 7 3 0}%8" # n "{0 1 2}%8" # octer rand
+  d5
+    $ s "arbt(3,8) [~ arbt? ~ ~]"
+
