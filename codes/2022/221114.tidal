@@ -1,0 +1,8 @@
+
+setcps 0.5
+
+d1 $ s "darkworld*4" |* speed "-1"
+  # up (choose[0,2,4,-1,12,11,7,9])
+  # room 0.7 # sz 0.9
+  |+ up "[0,7]" # n (irand 4)
+
