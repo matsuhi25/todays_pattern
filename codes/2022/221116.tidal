@@ -1,0 +1,23 @@
+
+setcps 0.7
+
+d1
+  $ every 2 (spreadf [jux rev, (rarely (ply 4)), (# accelerate 0.5)])
+  $ bite 4 "0 <1 <1*2 1*4>> 2 <3 <[3 0] [3*2 3*4]>>"
+  $ chop 32 $ loopAt 4 $ s "wfbreak:12" # speed 1.1
+  # lpfbus 1 (segment 128 (range 2400 8000 (slow 2 sine)))
+  # legato 1 # lpq 0.1 # shape 0.25
+
+d2
+  $ whenmod 16 14 (jux rev)
+  $ whenmod 8 6 (# accelerate (slow 2 (saw * 0.5)))
+  $ every 4 (jux rev)
+  $ loopAt 4 $ s "acidxd:2" # room 0.7
+  # lpfbus 2 (segment 256 (range 200 5000 (slow 2 saw)))
+  # lpq 0.25
+
+d3
+  -- $ almostNever (stutWith 4 (1/16) ((|* speed 1.5) . (|* gain 0.9)))
+  $ jux (|* speed 1.02)
+  $ chop 32 $ loopAt 4 $ s "elpad1" # room 0.9 # sz 0.7
+

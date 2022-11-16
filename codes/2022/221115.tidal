@@ -1,0 +1,20 @@
+
+
+d1
+  $ fast 2 $ sometimes (|* speed "-1")
+  $ stack[
+  s "darkworld" # speed (range 0.5 2.0 rand),
+  s "darkworld" # speed (range 0.7 2.2 rand),
+  s "darkworld" # speed (range 0.9 2.4 rand),
+  s "darkworld" # speed (range 1.1 2.6 rand)]
+  # room 0.5 # sz 0.9 # n (irand 5)
+  -- # accelerate (range 0.5 2 rand)
+  
+d2 $ s "909hh*2" # room (rand* 0.5) # sz 0.8
+
+d3
+  $ chunk 4 (hurry 2) $ rarely (ply 4)
+  $ s "peri*8" # n (run "<8 15>")
+  # shape 0.99 # gain 0.7 # room 0.15
+
+d4 $ degrade $ s "arbt(3,8,<0 2>)" # shape 0.25
