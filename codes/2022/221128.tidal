@@ -1,0 +1,25 @@
+
+d1
+  $ superimpose (# s "arbt")
+  $ whenmod 8 6 (jux rev)
+  $ s "gabba ~ <[gabba*2 ~] [gabba ~ ~ gabba]> ~"
+  # legato (choose[1,2])
+  
+d2
+  $ whenmod 8 6 (|* speed (slow 2 (saw + 1)))
+  $ almostNever (stut 8 0.7 (range 0.0001 0.03 (slow 7 tri)))
+  $ sometimesBy (0.35) (ply 4)
+  $ fast 2 $ iter 4 $ s "909hh(5,8)" # n (irand 4)
+  # pan 0.6 # room 0.1 # shape 0.5
+
+d3
+  $ superimpose (hurry 0.5 . (|+ legato 0.5))
+  $ someCyclesBy 0.3 (degrade . slow 2)
+  $ whenmod 16 14 (# accelerate (slow 2 (isaw*2)))
+  $ whenmod 8 6 (# coarse (slow 2 (saw*32)))
+  $ rarely (ply 4) $ chunk 4 (fast 2)
+  $ s "lwperc*8" # shape 0.95 # n (irand 88) # legato (choose[1,0.5,1.5])
+  # up "{0 3 5 7 14 -2}%8" # gain 0.85 # shape 0.99
+  # pan (range 0.3 0.6 perlin) # room 0.1
+
+hush

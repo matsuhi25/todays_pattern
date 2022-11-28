@@ -1,0 +1,26 @@
+
+
+
+d1
+  $ whenmod 4 3 (spreadf [(# coarse "8 16"), ply "4 6", jux rev])
+  $ sometimesBy "0.1 0.2 0.3 0.2" (stut 3 0.8 (randcat[1/16,1/32]))
+  $ fast 2 $ n "3(3,8,<0 2>)"
+  # s "{[arbt,mdkick] bksd [arhh,mdkick] aroh}%<4 8>/2"
+  # up "{0 3}%6" # legato (choose[1,2])
+  # shape 0.5 # lpf 6000 # lpq 0.15 # room 0.1
+
+d2
+  $ stut (randcat[4,6,2,1,1]) 0.5 (range 0.0001 0.03 perlin)
+  $ juxBy (slow 8 saw) (|* speed 1.04)
+  $ off (1/3) (|* gain 0.9) $ s "feel*8" # n (run "<14 33>")
+  # legato 0.8 # shape 0.25 # speed 1 # vowel (choose["a","u","i"])
+  # coarse 4 # hpf 1000
+
+d3
+  $ s "subx:3 [~ subx:3?] ~ ~" # up "<0 <0 3>>" # distort (rand * 0.3)
+  # octer (rand * 0.15)
+
+d4
+  $ fast 2 $ sometimes (off 0.125 (|+ n 1))
+  $ s "darkworld(3,8,<0 3>)" # up "{0 10 3 14}%3"
+  # room 0.55 # sz 0.9 # gain 0.9
