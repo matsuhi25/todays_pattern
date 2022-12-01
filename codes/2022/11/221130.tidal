@@ -1,0 +1,33 @@
+
+
+d1
+  $ whenmod 8 6 (juxBy (slow 2 saw) rev)
+  $ degradeBy "0 0.2"
+  $ s "[arkick*2 <[[~ arkick] ~] [~ arkick]>] [arkick(3,8)]"
+  # octer 0.2 # shape 0.5 # crush 8 # up "-3" # gain "[1 0.9]*8"
+  # legato (choose[1,2])
+
+d2
+  $ whenmod 8 6 ((|* speed 0.7) . (# legato 4))
+  $ rarely (ply 4) $ chunk 4 (fast 2) $ s "arhh*8" # n (irand 32)
+  # room 0.1 # legato 1
+
+d3
+  $ almostNever (fast 16)
+  $ jux (|* speed 1.03)
+  $ s "darkworld" # up "<c'min9 ef'maj9 af'maj9 g'min9>"
+  # octer 0.8 # crush 8 # shape 0.25 # gain 0.8 # n (irand 4)
+  # room 0.6 # sz 0.9
+
+d4
+  $ rarely (ply (choose[2,4,3]))
+  $ s "mdsd:1*4" # room 0.1 # sz 0.8 # pan 0.6
+  # gain "[0.7 1]*2"
+
+d5
+  $ rarely (ply 4)
+  $ chunk 4 (fast 2 . (|* speed 0.7))
+  $ s "glitch*8" # up "{0 5 7 10 14}%8" # n (irand 12)
+  # shape 0.99 # gain 0.7 # pan rand # room 0.2 # sz 0.9
+  # legato (choose[0.7,2])
+

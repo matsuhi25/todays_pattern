@@ -1,0 +1,58 @@
+
+d1
+  $ sometimesBy (0.33) (stut 8 0.9 (range 0.001 0.01 rand))
+  $ whenmod 8 6 (# sz (slow 2 saw))
+  $ chunk 4 (fast 2)
+  $ s "lwhh*8" # legato 1
+  # n (irand 64) # shape 0.5 # room 0.2 # sz 0.3
+
+d2
+  $ whenmod 16 14 ((|* speed "-1") . (# legato 4))
+  $ whenmod 8 6 (jux rev)
+  $ rarely (fast 4)
+  $ s "lwkick*4" # legato 1 # shape (rand * 0.7)
+
+d3
+  $ whenmod 8 6 (ply 2)
+  $ rarely (ply 4)
+  $ almostNever (slow 2 . (ply 3))
+  $ s "glsd:2*4" # speed "[6 1]*2" # shape 0.97 # gain 0.8
+  # legato (choose[4,0.7]) |* speed "{1 0.8 1.2}%15"
+
+d4
+  $ fast 2 $ stutWith 3 (1/8) ((|+ up 5) . (|* gain 0.8))
+  $ s "wfpad(5,8)" # coarse 8 # up "c'maj7" # legato 1
+  # begin rand # up (irand 12)
+
+hush
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

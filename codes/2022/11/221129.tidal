@@ -1,0 +1,38 @@
+
+do
+  d1
+    $ whenmod 16 14 (|* gain 0)
+    $ whenmod 8 6 (jux rev)
+    $ s "0 ~ <[~ 0] [0 ~ ~ 0]> ~"
+    # s "[gabba,arbt]" # legato 1.5
+  d2
+    $ whenmod 8 6 (# hpf (slow 2 (saw*3000)))
+    $ s "[~ [909hh 909hh?]]*4"
+
+
+d3
+  $ whenmod 8 7 (bite 4 (fast 2 "3(3,8,<0 2>)"))
+  $ s "[~ <lwcp:12 <lwcp:12 [lwcp:12*2]>>]*2"
+  # shape 0.98 # gain 0.85 # legato (choose[1,0.5])
+  # up "{0 2}%8"
+
+hush
+
+d4
+  $ spreadf [jux rev,
+             slow "<2 8 1>",
+             (|* accelerate 0.25),
+            stutWith 4 0.125 (|+ up 5),
+            chop 8]
+  $ someCyclesBy 0.2 (slow 4) $ rarely (ply 4)
+  $ chunk 4 (hurry 2) $ s "lwperc*8" 
+  # n (irand 88) # up "{0 7 5 12}%3"
+  # shape 0.99 # gain 0.75 # legato 1
+  
+
+d5
+  $ rarely (|+ n 1)
+  $ superimpose (slow 2 . (# n 3))
+  $ s "[darkworld!3 ~] darkworld"
+  # up (choose[0,1,5,7,10])
+  # room 0.4 # sz 0.8 # gain 0.9
