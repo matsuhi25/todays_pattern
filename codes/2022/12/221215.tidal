@@ -1,0 +1,28 @@
+
+
+d1
+  $ juxBy perlin (|* speed 1.03)
+  $ sometimesBy (slow 4 (saw*0.5))
+  (plyWith (choose[4,8]) (|* gain 0.9))
+  $ s (fast 2 "breaks165(5,8,<0 2>)") # speed 0.66
+  # begin (randcat[0,0.25,0.75,0.125,0.375])
+  # sustain 0.15
+  |* begin (range 1 1.01 (slow 8 tri))
+  # shape 0.97 # distort 0.4 # gain 0.8
+
+d2
+  $ superimpose (# s "mdkick")
+  $ s "arbt(3,8) arbt(2,8,<3 2>)"
+
+d3
+  $ s (every 2 rev "bass1(3,8) bass1:3")
+  # n (irand 11) # legato 1
+  # up ("<0 -5 3 2>" + 5) # distort (rand *0.5)
+
+d4
+  $ s "sine*16"
+  # up "{0 3 7 10 14 0 3 7 10 0 3}%16"
+  # room 0.5 # sz 0.8 # octer rand # gain 0.9
+  # sustain (range 0.05 0.45 (slow 8 saw))
+  # lpq 0.25
+
