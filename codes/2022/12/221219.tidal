@@ -1,0 +1,27 @@
+
+
+
+do
+  d1
+    $ sometimes (|* speed "-1")
+    $ s "bev(5,8,<0 2>)" # up "<5 -2 7 0>/2" # begin (slow 4 perlin)
+    # room 0.5 # sz 0.97 # gain 0.83 # legato (choose[1,2])
+  d2
+    $ whenmod 16 14 (|* gain 0)
+    $ s "arkick ~ [~ arkick] ~"
+  d3
+    $ sometimesBy "0 0.3" (# s "aroh")
+    $ off (1/3) (|* gain 0.8) $ s "arhh*8"
+    # pan (choose[0.45,0.55]) # gain 0.9 # legato 1
+  d4
+    $ s "[~ arcp]*2" # up "-2"
+  d5
+    $ whenmod 16 14 (|* gain 0)
+    $ s "subx:6 ~ [~ subx:6] ~" # cut 6 # up "<5 -2 7 0>/2"
+    # lpf 100 # gain 1
+  d6 
+    $ jux (|* speed "-1.5")
+    $ s "wfpad/2" # up ("<0 5 -2 3>/2" -4) 
+    # room 0.5 # sz 0.9 # gain 0.5 # lpf 1000
+  
+
