@@ -1,0 +1,47 @@
+
+setcps 0.6
+
+do
+  let mx = [1,0,0,0]
+  d1
+    $ s "sqrpad*4" # up ((choose[0,7,10,3,2,14]) - 7)
+    # n (irand 4) # room 0.9 # sz 0.9 # gain ((mx !! 0) * 0.65)
+    # lpfbus 4 (segment 128 (range 200 4000 (slow 8 sine)))
+    # lpq 0.2
+  d2
+    $ rarely (ply (choose[4,8]))
+    $ chunk 4 (fast 2)
+    $ s "909hh*8" # n (irand 64)
+    # legato (randcat[1,0.6]) # shape 0.95 # gain ((mx !! 1) * 0.72)
+    # pan perlin
+  d3
+    $ someCyclesBy "0.3" (ply 4)
+    $ sometimesBy "0.08 0.38" (# s "glsd:5")
+    $ almostNever (ply 4) $ sometimes (fast 4)
+    $ s "[glkick:3]*4" # legato (choose[3,4,6])
+    |+ n "<1 2 3 4>/16" # gain (mx !! 2)
+  d4
+    $ degradeBy "0 0.7!3"
+    $ s "[arbt,subx]*4" # gain (mx !! 3) # distort (rand * 0.3)
+    # legato (choose[4,1,0.5])
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
