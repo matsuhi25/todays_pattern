@@ -1,0 +1,27 @@
+
+setcps 0.725
+
+do
+  let mx = [1,0,0,0]
+      fx = [(# coarse "4 8"), ply 4, chop 8,
+            (# cutoff (range 200 5000 saw)), (# accelerate 0.25)]
+  d1
+    $ whenmod 8 6 (jux rev)    
+    $ s (fast 2 "[arbt,bkkick](<3 <2 <2 5>>>,8,<0 <3 <3 0>>>)")
+    # gain (mx !! 0) # octer (slow 8 cosine*0.3)
+  d2
+    $ juxBy perlin (|* speed 1.02)
+    $ rarely (# s "909oh")
+    $ chunk 6 (fast 2)
+    $ s "909hh*8" # n (irand 44) # legato 1 # gain (mx !! 1 * 0.9)
+  d3
+    $ s "darkworld*8?"
+    # n "{0 <0 1 2>}%8" # up ("{0 2 3 10 7 14 2 8 3 10}%8" + 6)
+    # room 0.5 # sz 0.9 # gain (mx !! 2 * 0.9) 
+  d4
+    $ every 4 (spreadf fx)
+    $ almostNever (slow 2 . ply 4)
+    $ s "amenall2*8" # n (run 7) # shape 0.99
+    # gain (mx !! 3 * 0.7) # legato 1 # speed 1.15
+
+

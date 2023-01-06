@@ -1,0 +1,22 @@
+
+
+
+
+do
+  let mx = [1,1,1,1,1,1]
+  d1
+    $ spreadf [chop 4, ply "<2 2 4>", (# accelerate 0.25), slow 2]
+    $ chunk 4 (hurry 2)
+    $ s "[909tom,arcp](<5 <3 5>>,8,<0 2 3>)" # n (irand 44)
+    # shape 0.97 # legato (choose[1,2])
+    # gain (mx !! 0 * 0.7) # up (choose[0,5,7])
+  d2
+    $ fast "{1 1 2 1 <1 2>}%4" $ sometimes (0.01 <~) 
+    $ degradeBy "0 0.8 0.5 0.7" $ s "glkick*8" # n (irand 44)
+  d3
+    $ s "supersquare*16"
+    # n "{0 2 3 5 7 10}%19"
+    # lpf (range 10 2000 (slow 4 rand)) # lpq (rand*0.25)
+    # sustain "{0.125 0.075}%7" # voice rand
+    # gain (mx !! 2 * 0.8) |+ n "[0,0.25]"
+  

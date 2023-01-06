@@ -1,0 +1,16 @@
+
+
+setcps 0.125
+
+
+
+
+
+
+d1
+  $ superimpose (plyWith 8 (|* speed (rand)))
+  $ superimpose (striate 2023)
+  $ slow 108
+  $ s "808*108"
+  # room 0.9 # sz 0.95 # shape 0.99 # gain 0.85
+  # coarse (irand 12)

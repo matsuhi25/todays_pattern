@@ -1,0 +1,32 @@
+
+setcps 0.725
+
+do
+  let mx = [1,1,1,1,1,1]
+  d1
+    $ n "{[0 [~ 0*2]] [0 [~ 0] ~ ~] 0(3,8) [0 [~ 0]] 0*4}%2"
+    # s "mdkick" # octer (slow 8 tri*0.5) # gain (mx !! 0)
+  d2
+    $ fast (randcat[1,1.5,2])
+    $ s "mdhh*8" # gain (mx !! 1)
+  d3
+    $ chunk 4 (hurry 2)
+    $ s "arcp(5,8,<0 3>)" # shape 0.98 # gain ((mx !! 2) * 0.625)
+    # cut 3 # legato (choose[8,0.75]) # n (irand 3)
+  d4
+    $ slow 2 $ s "subx(5,8)" # n (irand 8) # cut 4
+    # up (randcat[0,3,5,10])
+    # gain (mx !! 3 * 0.88)
+  d5
+    $ superimpose (|+ n (irand 6))
+    $ fast (randcat[1,2,1.5])
+    $ s "darkworld*4" # up "{0 5 3 10 7 2 14 15}%7"
+    # room 0.6 # sz 0.8
+    # gain (mx !! 4 * 0.7)
+    # lpfbus 5 (segment 128 (range 450 3000 (slow 16 tri)))
+    # lpq 0.1 # pan rand
+  d6
+    $ sometimes (ply 8)
+    $ s "lwperc*6" # n (irand 44) # legato 1
+    # gain (mx !! 5 * 0.55) # shape 0.999
+    
