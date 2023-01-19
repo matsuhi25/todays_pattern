@@ -1,0 +1,33 @@
+
+setcps 0.725
+
+do
+  let mx = [0,0,0,0,0]
+  d1
+    $ s "<mdkick mdkick*2> ~ mdkick? mdcp ~ <mdsd mdkick> ~"
+    # shape 0.98 # legato (randcat[0.8,4])
+    # gain (mx !! 0 * 0.75)
+  d2
+    $ sometimesBy "0 0.25" (# s "909oh")
+    $ rarely (ply 4) $ chunk 7 (fast 2)
+    $ s "909hh(5,7)" # n (irand 44) # legato 1 # shape 0.25
+    # gain (mx !! 1)
+  d3
+    $ sometimes ((ply "<4 4 8>") . (hurry "<1 2>"))
+    $ s "lwperc*5" # n (slow 2 (run 44)) # legato 1
+    # shape 0.98
+    # gain (mx !! 2 * 0.65)
+  d4
+    $ slow 2 $ s "bkvox" # coarse 8 # up ("<0 -4>" + 1)
+    # gain (mx !! 3)
+  d5
+    $ sometimes (off (1/7) (|+ note 12))
+    $ someCycles (palindrome)
+    $ s "supersquare*14" # note ("{0 3 7 10 14 15 0 5}%14" + 1)
+    # room 0.25 # sz 0.9 # voice "[0.5,0.25,0.95]"
+    # lpfbus 5 (segment 128 (range 500 3000 (slow 8 tri))) # lpq 0.2
+    # gain (mx !! 4 * 0.6)
+    
+
+    
+  

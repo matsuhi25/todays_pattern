@@ -1,0 +1,40 @@
+
+do
+  let mx = [0,0,0,0,0,0]
+  d1
+    $ whenmod 16 14 (|* gain 0)
+    $ someCyclesBy "0.34" (fast 2)
+    $ sometimesBy "0.22" (|+ n 1)
+    $ s "bkvox:1*2" # up (choose[0,3,2,7,-2,5,-4])
+    # gain (mx !! 0 * 0.65) # room 0.8 # sz 0.9
+  d2
+    $ whenmod 16 14 (|* gain 0)
+    $ whenmod 8 6 (# pan square)
+    $ n (randcat[
+            "0 [~ 0] ~ [~ 0] ~ ~",
+            "0 ~ [~ 0] [~ 0] ~ 0*2",
+            "0 ~ 0 0 ~ 0*2",
+            "0*4 ~ ~",
+            "0(3,8) 0(3,8) 0(3,8,5)"
+             ]) # s "[gabba,subx]"
+    # gain (mx !! 1 * 0.95)
+  d3
+    $ almostNever (ply 4)
+    $ sometimes (fast 4)
+    $ s "glhh*6" # legato 1 # speed (rand+1) # room 0.15 
+    # gain (mx !! 2 * 0.85) # pan rand
+  d4
+    $ whenmod 16 14 (ply 4)
+    $ sometimes (ply 4) $ scramble 4
+    $ s "~ 0 [~ 0] ~ 0 0*2" # s "glsd" # shape 0.98 # legato 1
+    # gain (mx !! 3 * 0.75)
+  d5
+    $ rarely (ply 8)
+    $ s "[lwperc glitch]*6" # legato 1 # n (slow 4 (run 44))
+    # shape 0.99 # octer rand
+    # gain (mx !! 4 * 0.7) # pan (fast "<3 5 1>" square)
+  d6
+    $ s "amenall2*4 [amenall2*4] [amenall2*3]" # n ((run 24) + "<3 7>/2") 
+    # speed 1.4 # pan 0.8 # room 0.5 # sz 0.7 # shape 0.7
+    # gain (mx !! 5)
+

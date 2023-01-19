@@ -1,0 +1,30 @@
+
+do
+  let mx = [1,0,0,0]
+  d1
+    $ sometimes (# s "juno")
+    $ chunk 6 ((fast 2) . (|* speed "<1 2>/2"))
+    $ s "glbass(5,12,2)" # legato (choose[2,1.5,1]) # n (irand 77)
+    # up "{c'min7 af'maj7 bf'maj}%5"
+    # compbus 2 # compthr 0.08 # comprel 0.1 # shape 0.96
+    # gain (mx !! 0 * 0.8) # speed "[1.0,2.02]" # begin (rand*0.7)
+  d2
+    $ whenmod 16 14 (# gain 0)
+    $ sometimesBy "0.22 0" (off (1/6) (|* gain 0.9))
+    $ degradeBy "0 0.25"
+    $ s "[gabba,arbt](5,12,{0 <1 2 0>}%3)" # n (choose[0,0,0,1,2])
+    # gain (mx !! 1)
+  d3
+    $ chunk 3 (fast 2)
+    $ s "arhh(7,12,<0 2>)" # legato 1 # n (irand 7)
+    # gain (mx !! 2)  # room 0.15
+  d4
+    $ whenmod 16 14 (# vowel "{o u e i a o e}%6")
+    $ sometimesBy "0.11" (ply 4)
+    $ rarely ((1/6) ~>) 
+    $ s "glsd(4,12,<0 1>)" # legato (choose[3,1.5])
+    # room 0.25 # shape rand
+    # gain (mx !! 3 * 0.8)
+
+
+

@@ -1,0 +1,28 @@
+
+
+do
+  let mx = [0,0,0]
+  d1
+    $ someCycles (superimpose (# s "arbt"))
+    $ degradeBy "0 0.15"
+    $ s "gabba(6,14,[0 1 2 3])"
+    # n "{0 <0 1 2 3>}%4" # gain ("{1 0.95 0.9}%14" * (mx !! 0))
+  d2
+    $ whenmod 16 14 (ply 4)
+    $ chunk 7 (fast 2)
+    $ sometimesBy "0 0.25" (# s "909oh")
+    $ s "909hh*7" # legato 1.5 # n (irand 8)
+    # gain (mx !! 1 * 0.9)
+  d3
+    $ someCyclesBy "0.4" ((sometimes (# s "wfnotes")) .
+                          (stutWith 4 0.125 (|+ up 5)))
+    $ whenmod 16 14 (# djf (slow 2 saw))
+    $ whenmod 8 6 (ply 4)
+    $ rarely (ply 4)
+    $ while "t(4,14,[0 1 2 3])" (# n 0)
+    $ s "glsd*7"
+    # n (soak 4 (|+ 1) 0)
+    # shape 0.96 # legato (choose[1.5,0.8,0.5])
+    # gain (mx !! 2 * 0.6)
+    # room 0.6 # sz (slow 16 cosine)
+
