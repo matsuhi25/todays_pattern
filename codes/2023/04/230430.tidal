@@ -1,0 +1,31 @@
+
+
+
+
+all $ (|* gain 1)
+
+d1
+  $ fast (randcat[1,2,1.5])
+  $ s "arhh*8"
+
+d2
+  $ s "arkick*4"
+
+d3
+  $ whenmod 4 2 rev
+  $ chunk 4 (hurry 2)
+  $ s "arcp(5,8,<0 2>)"
+
+d4
+  $ s "bline1(3,8)" # up "<0 1 -2 -5>"
+
+d5
+  $ fast 2 $ brak $ s "arbt cp" # shape 0.5
+
+d6
+  $ chunk 4 (hurry 2)
+  $ rarely (rev) $ ply "<2 3 5>"
+  $ s (sometimes (fast 2)
+       "<juno moog arpy>*5")
+  # up (run 8) # delay 0.98 # legato 0.7
+  # n (irand 5)

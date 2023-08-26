@@ -1,0 +1,21 @@
+
+
+do
+  let mx = [1,1]
+  d1
+    $ chunk "<2 4 6>/2" (fast 2 . (|* speed "{1 2}%8"))
+    $ s "feel*8" # n (run "<8 16>")
+    # speed (range 0.7 1.4 (fast 5 tri))
+    # shape 0.7 # gain (mx !! 0 * 0.85)
+    # legato "<1 <1 3>>/2"
+  d2
+    $ spreadf [(|+ n "0 1 2"), rev, chop 16, (|+ up 7),
+              (# accelerate "-0.75")]
+    $ s "{moog darkworld juno amenall2}%13(5,8)"
+    # legato ("{0.3 0.5 <1 2> 0.25}%7" * (slow 4 saw*3))
+    # up ("{0 3 2 10 7 5 14}%8" + 7)
+    # pan "{0.1 0.5 0.75}%2"
+    # delay 0.5 # delayfb (range 0.2 0.8 (slow 4 saw))
+    # hpf 300
+    # delaytime (range 0.01 0.33 (slow 6 cosine))
+    # gain (mx !! 1)

@@ -1,0 +1,17 @@
+
+
+d1
+  $ jux (|* speed 1.04)
+  $ loopAt (randcat[2,1,3]) $ chop 8 $ s "glbass"
+  # n (choose[0,7,8,11,12,16])
+  # up "[0,7,14]" # begin (rand * 0.3)
+  # shape 0.7 # gain 0.75
+  # compthr 0.03 # comprel 0.3 # compbus 2
+  # room 0.8 # sz 0.5
+
+d2
+  $ s "mdkick ~ [<mdkick*2 ~> <~ [~ mdkick]*2>] ~"
+  # shape 0.5 # gain 1.1
+
+d3
+  $ s "~ glsd [~ glsd] ~"

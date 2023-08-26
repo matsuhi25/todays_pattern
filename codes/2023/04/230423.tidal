@@ -1,0 +1,33 @@
+
+do
+  let mx = [1,1,1,<0 0 0 1>,1]
+  d1
+    $ ghost
+    $ s "<fgkick*2 [fgkick*2 ~]> ~ fgkick~" 
+    # n "[1,5]" # lpf 1200 # crush 6 # shape 0.5 # coarse 13
+    # gain (mx !! 0)
+  d2
+    $ jux (|* speed 1.05)
+    $ s "[~ <arhh [arhh ~ arhh]>]*4" # n 2
+    # lpf 5000 # coarse ((irand 2) + 3)
+    # gain (mx !! 1)
+  d3
+    $ iter 2
+    $ rarely (ply 4)
+    $ fast 2 $ degradeBy "0.5 0.25"
+    $ s "fgsd(5,8,<0 2>)" # n (slow 2 $ run 12) # cut 3 # lpf 3000
+    # speed "1 1.5 1 0.7"
+    # gain (mx !! 2)
+  d4
+    $ whenmod 4 3 ((|+ n 1) . (ply 4))
+    $ s "~ fgfoley*4" # n (run 44) # legato 1
+    # lpf 4000 # lpq 0.2 # pan (choose[0.3,0.7])
+    # gain ((mx !! 3) * 0.8)
+  d5
+    $ sometimes (off (choose[0.25,0]) (|* speed 0.5))
+    $ s "atom1" # up (choose[0,4,2,7,-1,5,-3])
+    # room 0.9 # sz 0.97 # n (irand 6)
+    # lpfbus 5 (segment 127 (range 300 5000 (slow 8 cosine)))
+    # lpq 0.2 # crush ((irand 6) + 6)
+    # gain ((mx !! 4) * 0.925)
+

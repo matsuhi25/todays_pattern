@@ -1,0 +1,30 @@
+
+setcps 0.666
+
+do
+  let mx = [0,0,0,0]
+  d1
+    $ rarely (# legato 0.75)
+    $ s "[gabba,arbt] [~ <gabba arbt>] ~ ~"
+    # crush (slow 4 (tri*4+6)) # lpf 3000
+    # gain (mx !! 0)
+  d2
+    $ stut ((irand 6) + 2) 0.1 (range 0.0001 0.025 rand)
+    $ chunk "<2 4>" (hurry "{2 1.5 2}%8")
+    $ s "rx15*8" # n (run 7) # shape 0.8
+    # lpf 3000
+    # gain (mx !! 1 * 0.9)
+  d3
+    $ s "superfm*4" # legato 4
+    # note (choose[0,2,3,5,7])
+    # pan rand # room 0.3 # sz 0.8 # voice (range 0.0001 0.001 rand)
+    # delay 0.25 # delayfb 0.5 # delaytime 0.15
+    # gain (mx !! 2 * 0.925)
+  d4
+    $ s "clare" # n (irand 12)
+    # room 0.5 # sz 0.95
+    # hpfbus 0 (segment 256 (range 200 3500 (slow 8 cosine)))
+    # hpq 0.15 # gain (mx !! 3 * 0.95)
+    # pan rand
+
+

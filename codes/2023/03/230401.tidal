@@ -1,0 +1,33 @@
+
+setcps 0.7 -- 0.5
+
+do
+  let mx = [1,1,1,1]
+  d1
+    $ slow 8
+    $ s "superfm*2"
+    # up ((soak 4 (|- 3)
+           "[g'dom7 c'maj7]"))
+    # voice (rand*64)
+    # room 0.9 # sz 0.9
+    # compthr 0.04 # comprel 0.01
+    # compbus 3
+    # gain ((mx !! 0) * 0.7)
+  d2
+    $ whenmod 16 14 (# hpf 200)
+    $ s "arbt [~ arbt]? ~ arbt?"
+    |* gain ((mx !! 1) * 0.9)    
+  d3
+    $ whenmod 16 15 (bite 4 "0*2 0*4")
+    $ chop 64
+    $ s "plsmbreak/4"
+    |+ n "<0 <0 <0 1>>>" # shape 0.6
+    |* gain (mx !! 2) # legato 1
+  d4
+    $ chunk 4 (fast 2)
+    $ s "909ride(5,8,<0 1>)"
+    # begin (rand*0.3)
+    # speed (rand*0.5+1)
+    # legato (choose[1,0.5]) # room 0.25
+    |* gain (mx !! 3)
+    

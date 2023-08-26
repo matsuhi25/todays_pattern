@@ -1,0 +1,30 @@
+
+do
+  let mx = [1,1,1,1,1]
+  let func = [ply 8, chop 16, (# accelerate "<-1 0.25>/3"), (# sz 0.97), rev,
+              (bite 4 "[0 [0*2 [0*4]]]" . (# sz 0)), (# legato 4),
+              stut 4 0.3 0.3, ply "4 [8 16]"]
+  d1
+    $ while "[t f!3]*4" (# gain 1)
+    $ bite 4 "0 ~ <0*2 <0*2 [2 4]>> ~"
+    $ s "fgkick:8(5,11)" # lpf 800 # shape 0.25 # room 0.1
+    # gain (mx !! 0 * 0.8) # legato 1
+  d2
+    $ whenmod 16 14 (# lpf (slow 2 (saw*3000)))
+    $ fast 2 $ bite 4 "0*4"
+    $ s "fghh*7" # n "{1 2}%7" # cut 2 # lpf 5000 # gain (mx !! 1)
+  d3
+    $ bite 4 "~ <0 2> [[~ 0] ~] 0"
+    $ s "fgsd*5" # n 0 # up ("{0 5 7 -5}%8" + "<0 -2>")
+    # shape 0.55 # lpf 3400 # legato 2
+    # room 0.05 # sz 0.6 # gain (mx !! 2)
+  d4
+    $ spreadr ($) func
+    $ (|+ up "<0 3 -2 -4>/4")
+    $ chop 32 $ s "fgvox:3/4" # legato 1
+    # room 0.5 # sz 0.5 # lpf 4000
+    # gain (mx !! 3 * 0.85)
+  d5
+    $ s "subx" # up "<0 <3 -4>>" # distort 0.25
+    # gain (mx !! 4) # cut 5
+

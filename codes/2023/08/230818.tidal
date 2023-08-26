@@ -1,0 +1,27 @@
+
+do
+  let mx = [1,1,1,1]
+  d1
+    $ juxBy perlin rev
+    $ whenmod 16 14 (# delay 0)
+    $ chunk 4 ((fast 2) . (# voice rand))
+    $ s "superhex(5,8,<0 2>)" # n (irand 12)
+    # up (randcat[0,3,2,5,-5,-2,1])
+    # delay 0.35 # delaytime 0.44 # delayfb 0.7
+    # tremr (choose[3,4,6,2]) # tremdp 0.9
+    # gain (mx !! 0 * 0.9)
+  d2
+    $ sometimesBy 0.1 (ply 2)
+    $ chunk 4 (fast 2)
+    $ s "rx15*8" # n (run "<8 22>") # speed 0.9 # legato 1
+    # shape 0.95 # gain (mx !! 1 * 0.83)
+  d3
+    $ s "808bd:1 [~ <~ 808bd:1>] ~ ~" # gain (mx !! 2 * 1.5)
+  d4
+    $ whenmod 5 3 (|* speed 2)
+    $ (|+ up "{0 2 3 7 5 -2 10}%7") $ degrade
+    $ s (iter 4 "gtr ~ ~ ~") |* speed "-2" # room 0.99 # sz 0.98
+    # delay 0.5 # delayfb 0.7 # delaytime (1/3)
+    # gain (mx !! 3 * 0.65) # pan rand # shape 0.8
+    # hpf 3900 # hpq 0.15
+

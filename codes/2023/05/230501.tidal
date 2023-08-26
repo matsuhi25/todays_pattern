@@ -1,0 +1,79 @@
+
+hush
+
+do
+  let rmx = [1,1,1,1,1]
+  p "r1"
+    $ whenmod 16 14 (# hpf 300)
+    $ every 2 (degrade)
+    $ s "[fgkick*2 [~ fgkick ~!2]] fgkick(<3 5>,8)"
+    # legato (choose[1,2]) # n 10
+    # gain (rmx !! 0) # orbit 0
+  p "r2"
+    $ chunk "<2 4>" (fast 2)
+    $ s "909hh(5,8,<2 0>)"
+    # lpf (choose[3000,1800,3600])
+    # n (choose[0,7]) 
+    # gain (rmx !! 1) # orbit 1 # pan 0.6
+  p "r3"
+    $ whenmod 16 14 ((# room 0.2) . (# sz (slow 2 saw)))
+    $ rarely (plyWith (randcat[6,8,16])
+              ((|* gain 0.95) . (# legato 1)))
+    $ s "[~ <fgsd <fgsd fgsd*2>>]*2"
+    # lpf 3000
+    # gain (rmx !! 2) # orbit 2 # pan 0.4
+  p "r4"
+    $ whenmod 16 14 (|* gain 0)
+    $ s "subx:1*2" # up "<-3 -2 4 2>/2"
+    # orbit 3 # cut 4
+    # gain (rmx !! 3)
+  p "r5"
+    $ bite 4 "0 1 2 3"
+    $ s "fgfoley*15" # n (slow 2 $ run 33 + 1)
+    # legato 1.5
+    # orbit 4 # lpf (choose[1800,3600,2400,5000])
+    # shape 0.97 # up (choose[-5,3])
+    # gain (rmx !! 4 * 0.725)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+do
+  let pmx = [0,0,0]
+  p "pad1"
+    $ s "atom1"
+    # up (choose[0,1,2,3,5,-2,-5,-4])
+    # n (irand 5)
+    # room 0.9 # sz 0.95 # crush ((irand 8) + 8)
+    # gain ((pmx !! 0) * 0.7) # orbit 6
+  p "pad2"
+    $ s "<bkvox>/4"
+    # room 0.99 # sz 0.9
+    # gain (pmx !! 1 * 0.75) # coarse 3
+    # orbit 7 # lpf 2000 # delay 0.8
+  p "pad3"
+    $ s "darkworld*8"
+    # gain (pmx !! 2 * 0.7) # orbit 8
+    # up "{0 3 2 5 7 3 10 7}%8"
+    # n  "{<3 0> 1 2}%8"
+    # lpf 1800 # room 0.4 # sz 0.9
+    # pan (slow 2 saw)
+
+
+    

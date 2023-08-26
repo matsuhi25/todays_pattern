@@ -1,0 +1,29 @@
+
+setcps 0.666
+
+do
+  let mx = [1,1,1,1]
+  d1
+    $ foldEvery [2,4] ((sometimes (|+ note 12)))
+    $ rarely (|+ note 12)
+    $ s "superfm*8" # voice (rand*0.04)
+    # note "{0 3 2 7 5 -2 14 15 5 7}%14"
+    # sustain (range 0.025 0.6 rand)
+    # delay (slow 8 tri) # delayfb (slow 8 (tri*0.7))
+    # delaytime (randcat[0.15,0.25,0.33,0.05,0.001]) # room 0.8 # sz 0.7
+    # gain (mx !! 0 * 0.7)
+  d2
+    $ whenmod 8 6 ((# coarse 4) . (ply "<2 [4 6]>"))
+    $ rarely (ply (choose[1,2,6,4]))
+    $ s "arkick [arhh arkick?] arcp arhh"
+    # room 0.15 # sz rand # legato 1
+    # gain (mx !! 1)
+  d3
+    $ s "subx"
+    # up "<0 -2 7 <3 8>>" # n (irand 4) # legato 1
+    # gain (mx !! 2) # crush (segment 256 (range 6 16 (slow 8 isaw)))
+  d4
+    $ s "clare*2" # n (irand 12) # room 0.99 # sz 0.75
+    # gain (mx !! 3 * 0.7) # hpf 1400 # hpq 0.25
+
+

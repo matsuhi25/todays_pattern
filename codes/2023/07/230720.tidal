@@ -1,0 +1,34 @@
+setcps 0.777
+
+do
+  let mx = [0,0,0,0,0]
+  d1
+    $ rarely (# s "subx:1")
+    $ whenmod 16 14 (|* gain 0)
+    $ someCyclesBy 0.3 (rarely (|+ n (irand 12)))
+    $ almostNever (chop 8) 
+    $ gain "{[1 1] [<~ [~ [~ 1]]>] [<1 ~>] [1 1] [<1 [1*2]> 1] [~] [<~ 1>]}%4"
+    # s "hardkick:5" # cut 1 # crush (choose[8,6,4,12,14])
+    |* gain (mx !! 0 * 0.95) # speed 0.85 # cut 1
+  d2
+    $ someCycles (# n (irand 24))
+    $ s "hh27*8" # legato rand # room 0.15 # sz 0.8    
+    # shape (rand * 0.5) # pan 0.35 # hpf (rand*5000) # hpq (slow 7 (tri*0.5))
+    |* gain (mx !! 1 * 0.95)
+  d3
+    $ degradeBy 0.3 $ chunk 4 (fast 2)
+    $ s "glsd(5,8,<0 1 2 3>)" # legato (choose[1,2,3]) # gain (mx !! 2 * 0.95)  
+  d4
+    $ rarely (ply (choose[4,8])) $ chunk "<4 2>" (hurry 2)
+    $ s "peri*8" # n (run "<12 8 9 14>") # shape 0.95
+    # gain (mx !! 3 * 0.7) # legato 1.5 # pan 0.65 # hpf 200 # crush 4
+  d5
+    $ rarely (gap 32) $ jux (|* speed 1.03)
+    $ s "wfpad" # n "<0 1 4 6 7>/4"
+    # up (choose[0,2,3,5,7,-2]) 
+    # tremr (choose[4,6,12,8,16,3]) # tremdp 0.7
+    # pan rand # room 0.5 # sz 0.9 # hpf 600
+    # accelerate (rand * "<1 -1>")
+    # gain (mx !! 4 * 0.8)
+
+

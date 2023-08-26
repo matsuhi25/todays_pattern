@@ -1,0 +1,27 @@
+
+
+hush
+
+
+d1
+  $ s "58gl*4"
+  # n (slow 2 $ run 8)
+  # shape 0.97 # gain 0.75
+  # compbus 2 # compthr 0.1 # comprel 0.03
+
+d2
+  $ whenmod 16 15 (|* gain 0)
+  $ rarely (fast 4)
+  $ s "[arkick,808bd:1]*4" # legato 1
+
+d3
+  $ someCyclesBy "0.15" (ply 4)
+  $ bite 4 "0 <1*4 1 1*2> <2*3 2> <3 3*2 [3 0]>"
+  $ chop 32 $ s "plsmbreak/4"
+  # shape (2/4) # legato 1 # n "<0 1>/2"
+
+d4
+  $ s (iter 4 "darkworld*2")
+  # up (choose[0,-1,4,7,14,16,11] + 3)
+  # room 0.8 # sz 0.9 # gain 0.8
+  

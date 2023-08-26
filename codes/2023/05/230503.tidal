@@ -1,0 +1,16 @@
+
+
+
+
+
+
+
+d1
+  $ sometimes (stut 8 0.5 (range 0.0001 0.05 rand))
+  $ off 0 (bite 6 "0 1 2 3 5 4")
+  $ bite 4 "0 2 1 3"
+  $ bite 5 "0 3 2 1"
+  $ s "casio*4" # n "0 1 1 1"
+  # room 0.8 # sz 0.97 # gain 0.8
+  # delay 0.8 # delayfb 0.8 # delaytime (range 0.01 0.3 rand)
+  # up (choose[0,2,3,5,7,-2,-4])

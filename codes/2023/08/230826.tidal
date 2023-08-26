@@ -1,0 +1,30 @@
+do
+  let mx = [1,1,1,1,1,1]
+  -- all $ bite 4 "0 1 2 3"
+  d1
+    $ s "[arbt,arkick] [~ <~ arkick>] ~ <~ arbt>"
+    # gain (mx !! 0)
+  d2
+    $ s "~ [~ [arkick,arcp:2]] <arrim arrim*2> ~"
+    # room 0.15 # speed (range 0.5 1.5 (slow 6 cosine)) # legato 1
+    # gain (mx !! 1)
+  d3
+    $ chunk 4 (fast 2)
+    $ s "glcp*8" # n (choose[0,10]) # pan 0.7 # legato 1
+    # gain (mx !! 2 * 0.75) 
+  d4
+    $ every 2 (|* gain 0)
+    $ stut 8 0.9 (range 0.00001 0.005 rand)
+    $ s "~ 909ride ~ arcp" |* speed "-1 1"
+    # room 0.1 # sz 0.7 # pan rand
+    # gain (mx !! 3 * 0.75)
+  d5
+    $ striate "1 <16 32 44 19>"
+    $ s "bass1 <~ [~ bass1]> ~ ~"
+    # n "[1,2]" # speed (range 0.75 1.75 (slow 5 tri))
+    # gain (mx !! 4 * 0.9)
+  d6
+    $ rarely (ply 8)
+    $ s "fmkick(5,8,1)" # n (irand 12)
+    # legato 1 # speed (range 1.5 3 (slow 5 cosine))
+    # gain (mx !! 5)
