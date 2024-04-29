@@ -1,0 +1,21 @@
+
+
+setcps 0.68
+
+
+
+d1
+  $ rarely (fast 4)
+  $ s "arbt*4"
+
+
+d2
+  $ someCycles (slow 2)
+  $ chunk 4 (fast 2)
+  $ s "mnmlaser2*4" # n (irand 4)
+  # accelerate (rand * "-1") # shape 0.25
+
+d3
+  $ s "~ [glsd [~ glsd?]]"
+
+hush

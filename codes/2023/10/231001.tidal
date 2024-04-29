@@ -1,0 +1,20 @@
+
+
+
+
+do
+  let mx = [0,0,0]
+  d1
+    $ s "[arbt,mdkick] arbt arbt arbt" # gain (mx !! 0)
+  d2
+    $ rarely ((ply 8) . (# cut 2))
+    $ whenmod 4 3 (bite 4 "3 0 2 3")
+    $ s "arhh ~ glsd [~ glsd?]" # n 1
+    # gain (mx !! 1)
+  d3
+    $ almostNever (ply 8)
+    $ juxBy perlin rev
+    $ chunk 4 (fast 2)
+    $ speed "{1 ~ ~}%8" # room 0.25 # sz 0.8 # n (irand 4)
+    # gain (mx !! 2) # s (choose["mnmlaser","mnmlaser2"])
+    

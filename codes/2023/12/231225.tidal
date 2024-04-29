@@ -1,0 +1,15 @@
+
+
+
+
+
+p "merry glichmas"
+  $ juxBy rand rev
+  $ spreadf [ply "<4 8 9>", chop 4, rev,
+             hurry 2]
+  $ bite 8 "0 .. <4 3 12 4 7>"
+  $ s "[breaks165*2, moog*2 moog*4, feel*8]"
+  # up (choose[0,2,3,-4,-5,-2])
+  # n (irand 9) # legato "<1 .. 2>/4"
+  # shape 0.99 # cps 0.6
+

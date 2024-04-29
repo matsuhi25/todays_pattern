@@ -1,0 +1,33 @@
+
+hush
+
+do
+  let mx = [1,1,1,1,1]
+  d1
+    $ whenmod 16 14 (hurry 2)
+    $ s "glbass*2" #legato 1
+    # n (choose[0,12,13]) # up (randcat[0,3,5,7,-2,2,14])
+    # distort rand # tremr "{1 4 <4 6>}%4" # tremdp 0.95
+    # begin "0 0.25 0.5 0.75" # room 0.5 # sz 0.7
+    # gain (mx !! 0 * 0.9)
+  d2
+    $ whenmod 16 14 (|* gain 0)
+    $ someCyclesBy 0.3 (fast 4)
+    $ s "[arbt,mdkick]*4?" # shape 0.35
+    # gain (mx !! 1)
+  d3
+    $ rarely (ply 8)
+    $ s "glitch*8" # n (soak 4 (|+ 2) (run "4 8"))
+    # shape rand # legato 1 # pan (range 0.25 0.75 (fast 3 square))
+    # gain (mx !! 2 * 0.7) 
+  d4
+    $ off 0 (# s "arcp")
+    $ rarely (ply 8)
+    $ s "~ ~ glsd [~ glsd?]" # legato 2
+    # room 0.15 # sz 0.8
+    # gain (mx !! 3 * 0.91)
+  d5
+    $ juxBy 0.5 ((|+ n 1) . (|* speed "-1"))
+    $ s "fgvox/2" # legato 2 # n (irand 24)
+    # room 0.9 # sz 0.9 # coarse 3
+    # gain (mx !! 4 * 0.6)

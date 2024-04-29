@@ -1,0 +1,29 @@
+
+do
+  let mx = [1,1,1,1]
+  setcps 0.7
+  d1
+    $ whenmod 16 14 ((# hpf (slow 2 (saw*4000))) . (# hpq 0.15))
+    $ whenmod 8 6 (# coarse (slow 2 "4 8 16 32"))
+    $ bite 4 (scramble 4 "<0 0*2> <1 <1 1*2>> <2 2*4> <3 <3 [3 0*2]>>")
+    $ chunk "<4 8>" (slow "<1 2 4 2>" . (ply "<2 4 6>"))
+    $ chop "{8 16 32}%<4 2>"
+    $ s "wfbreak/4" # legato 1 # shape 0.55 # hpf 150
+    # n (irand 64) # gain (mx !! 0)
+  d2
+    $ someCycles (superimpose (# n 0))
+    $ s (fast (randcat[2,1.5,1,2]) "juno*8")
+    # legato 1 # up (randcat[0,4,5,2,9,11,-1,12,14,16])
+    # gain (someCycles rev
+            (range 0.55 1.0 (randcat[saw,sine])))
+    # room 0.6 # sz 0.975 # n 2 # tremr 3 # tremdp 0.95
+    |* gain (mx !! 1 * 0.75) # pan perlin
+  d3
+    $ s "fgkick ~ [~ fgkick] ~" # speed 0.75 # shape 0.5
+    # gain (mx !! 2)
+  d4
+    $ s "bkvox:1" # up ((choose[0,4,2,5,7,-1]) - 4)
+    # hpfbus 4 (segment 64 (range 200 1800 (slow 6 sine))) # hpq 0.125    
+    # room 0.99 # sz 0.95
+    # gain (mx !! 3 * 0.65)
+    

@@ -1,0 +1,28 @@
+
+
+do
+  let mx = [1,1,1]
+  d1
+    $ whenmod 16 14 (# hpf 700)
+    $ s "arbt [arhh*2 arbt?] cp <arhh <aroh arcb?>>" # room 0.5 # sz 0.8
+    # legato 1 # shape 0.99 # pan "0.5 0.25 0.5 0.75"
+    # gain (mx !! 0 * 0.75)
+  d2
+    $ stut 8 0.75 (range 0.0001 0.01 cosine)
+    $ rarely (ply (randcat[4,8,16]))
+    $ chunk 4 (hurry 2)
+    $ s "lwperc*8" # n (irand 24)
+    # room 0.95 # sz (randcat[0.25,0.5,0.75,0.9])
+    # legato 1 # shape 0.99 # up (choose[0,3,7,1])
+    # gain (mx !! 1 * 0.55)
+  d3
+    $ almostNever (ply 4)
+    $ chop 32 
+    $ s "glvox*4?" # cut 3
+    # shape 0.95
+    # n (irand 32) # speed (rand*2+0.5)
+    # gain (mx !! 2 * 0.85)
+  d4
+    $ s "clare" # n (irand 24) # shape 0.5
+    # room 0.5 # sz 0.95 # up ("[0,-5]" + 1)
+    # gain (mx !! 0 * 0.9)

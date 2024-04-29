@@ -1,0 +1,30 @@
+
+do
+  let mx = [1,0,0,0,1]
+  d1
+    $ almostNever (|* speed 2)
+    $ rarely (|* speed "-2")
+    $ s "wfnotes:4*8" # up "{0 4 -1 2 6 7}%8"
+    # room 0.5 # sz 0.9
+    # hpfbus 1 (segment 256 (range 200 2000 (slow 4 cosine))) # hpq 0.1    
+    # tremrbus 2 (segment 64 (range 4 16 (slow 4 sine))) # tremdp 0.8
+    # gain (mx !! 0 * 0.95)
+  d2
+    $ s "tabla*8" # n ((run "<5 8>") + 1) # legato 1 # speed 0.8
+    # shape 0.65 # room 0.5 # sz 0.8 
+    # gain (mx !! 1 * (range 1.0 0.9 rand))
+  d3
+    $ s "arbt(<1 3>,8)" # gain (mx !! 2)
+  d4
+    $ stutWith 4 0.125 ((|* speed 1.5) . (|* gain 0.9))
+    $ sometimes ((1/8) ~>)
+    $ s "darkworld" # up "<c'maj7 d'min9 g'maj7 e'min7'6>"
+    # room 0.5 # sz 0.9
+    # gain (mx !! 3 * 0.9)
+  d5
+    $ s "supersquare*2"
+    # up ("{11 9 4 2 7 4 2 -1 0 4 9}%2" + "<12 <12 [12 24]>>") 
+    # attack 2 # sustain 2 # voice rand # pan rand
+    # tremr (choose[16,8,3,4,6]) # tremdp 0.99 # room 0.9 # sz 0.8
+    # gain (mx !! 4 * 0.8)
+

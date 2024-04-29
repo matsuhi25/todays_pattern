@@ -1,0 +1,33 @@
+
+setcps 0.61
+
+hush
+
+do
+  let mx = [0,0,1,0]
+  d1
+    $ degrade $ rarely (ply 4)
+    $ s "909ride*4" # begin (rand * 0.2 + 0.3)
+    # speed (fast "<1.5 5 3>" (isaw * 0.5 + 0.5))
+    # room 0.5 # sz 0.7 # shape 0.99 # legato (randcat[1,1,0.5])
+    # gain (mx !! 0 * 0.525) # pan rand
+  d2    
+    $ whenmod 16 14 (fast "<1 [1 2 4 8]>")
+    $ off 0 (# s "hardkick:1")
+    $ s "<arbt [arbt [~ arbt] ~ ~] arbt [[arbt*2] ~!3]>"
+    # gain (mx !! 1)
+  d3
+    $ whenmod 7 5 (rev)
+    $ whenmod 16 14 ((hurry 2) . (# speed 1.5) . (|* gain 0.85))
+    $ jux (|* speed 1.03)
+    $ s "glbass*4" # legato 1 # shape 0.95 # distort 0.5
+    # begin "{0 0.15 0.25 0.35 0.45 0.55 0.65}%4"
+    # up (("{0 6 5 3 2 3 10 8 7 6}%4") + "<0 3>/4")
+    # tremr "{8 16 2 9 1 12 6 4}%4" # tremdp "{0.8 0.95 0.5 0.75 0.99 0.2}%8"
+    # gain (mx !! 2 * 0.88)
+  d4
+    $ whenmod 16 14 ((ply 2) . (fast 2))
+    $ rarely (ply 8)
+    $ s "<~ [[~ glsd?] ~]> <[glsd [~ glsd?]] glsd>"
+    # room 0.5 # sz 0.1 # shape 0.97    
+    # gain (mx !! 3 * 0.6) # legato 1.5  

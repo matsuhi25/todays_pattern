@@ -1,0 +1,27 @@
+
+setcps 0.65
+
+do
+  let mx = [1,1,1,1,1]
+  d1
+    $ s "gabba [~ gabba?] <~ [~ gabba?]?> ~"
+    # gain (mx !! 0)
+  d2
+    $ rarely (ply 8)
+    $ chunk 4 (hurry 2)
+    $ s "lwperc*8" # legato 1 # n (run "<12 25>")
+    # shape 0.993 # speed 1.4 # coarse 4 |+ up (slow 4 "0 .. 12")
+    # gain (mx !! 1 * 0.6)
+  d3
+    $ s "glvox*8" # n "<0 12 7 5 6 13 8 4>/2"
+    # begin "<0.25 0.5 0.75>/4" # legato 1
+    |+ shape ("0.33(<5 <<3 5> 8>>,8,<0 2 3 4>)")
+    # gain (mx !! 2)
+  d4
+    $ loopAt 8 $ s "lfep:41"
+    # room 0.95 # sz 0.95 # coarse 4 # crush 6
+    # gain (mx !! 3 * 0.77)
+  d5
+    $ s "~ fgsd(<1 <1 5>>,8,<0 <0 <1 2>>>)" # room 0.1777 # sz 0.85
+    # gain (mx !! 4) # cut 1 # speed 0.9
+

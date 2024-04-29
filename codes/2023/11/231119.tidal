@@ -1,0 +1,26 @@
+setcps 0.7
+
+do
+  let mx = [1,1,1]
+  d1
+    $ s "<gabba*2 gabba> ~ [~ gabba?] ~" # shape 0.25 # legato 1
+    # gain (mx !! 0 * 0.95)  
+  d2
+    $ sometimesBy "0.05" (ply 8)
+    $ whenmod 4 3 (spreadf [jux rev, chop 8, (# accelerate 0.25),
+                            (# coarse "4 8"), (|* speed "-2")])
+    $ bite 4 (randcat["0 1 2 3", "0 1 2 3", "0 1 2 3", "0 1 2 3",
+                      "0 1*2 2 3*4", "0 [0 1] 3 2",
+                      "[0 1] [0 2] [2 0] [0 3]", "0 3 2 1",
+                      "~ 1 0 2", "~ 1*4 [0 0] [3*2 3*4]"])
+    $ chop 32 $ s "wfbreak/4" # legato 1
+    # n (soak 8 (|+ 6) (slow 2 "0 .. 7")) # shape 0.95 # hpf 100
+    # gain (mx !! 1 * 0.75)
+  d3
+    -- $ (# lpfbus 3 (segment 256 (range 500 5000 (slow 8 tri))))
+    $ sometimes (hurry "<2 4>")
+    $ s (every 2 rev "bknotes*2 bknotes")
+    # up "{0 2 2 3 -2 5 7}%6" # n (irand 30)
+    # room 0.3 # sz 0.95 # legato (choose[1,2,0.5])
+    # gain (mx !! 2 * 0.75) # lpq 0.1777
+

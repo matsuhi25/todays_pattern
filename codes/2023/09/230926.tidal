@@ -1,0 +1,28 @@
+
+
+
+d1
+  $ rarely (fast 4)
+  $ s "arbt*4"
+
+d2
+  $ whenmod 16 14 (|* speed 2)
+  $ sometimes (slow 4)
+  $ chunk "2 4" (hurry 2)
+  $ s "glbass*2 bass1*4" # cut 2
+  # n (irand 32) # shape 0.99 # gain 0.65
+  # up (choose[0,7,6,5,10]) # begin (rand * 0.25)
+  # room 0.5 # sz (range 0.1 0.95 (slow 8 saw))
+
+d3
+  $ s "subx" # up "<0 3 2 1>" # shape "[0,0.25]"
+  
+d4
+  $ chunk 4 (fast 2)
+  $ s "arhh*2 ~ arhh*3 ~" # hpf 200
+
+d5
+  $ stut 8 rand (range 0.0001 0.03 rand)
+  $ sometimes ((ply 4) . (# legato 1))
+  $ s "~ [glsd [~ glsd?]]"
+  # n "[0,1]" # room 0.2 # sz 0.1 # gain (0.75)
